@@ -1,0 +1,55 @@
+<html>
+<head>
+</head>
+<body>
+<!-- Il me semble que ca peut être fonctionnel, regarde la route lors du submit
+cf aussi dans la doc le routage dynamique-->
+
+<!--<form  onsubmit="return this.toto(req, res)"/>-->
+<form id="myForm">
+
+    <div>
+        <label>Name:</label>
+        <input id="parmToGet" name="param" type="text">
+    </div>
+
+    <div>
+        <button type="submit" >monBouton</button>
+    </div>
+</form>
+<script>
+   // const UserController = require('../../api/controllers/UserController');
+
+    const TheForm = document.getElementById("myForm");
+    TheForm.addEventListener("submit", (e) =>{
+
+      //annule la prise en main vers une url impossible à manipuler
+      e.preventDefault();
+
+      const requete = new XMLHttpRequest();
+      requete.open("post" ,"/user/toto");
+      requete.onload = function (){
+
+        //window.location.replace("/");
+      }
+      console.log("url done");
+      requete.send(new FormData(TheForm));
+
+
+
+      //possibilité d'appeler une route, arguments???
+       //res.redirect('/user/toto');
+      //return UserController.toto();
+
+    });
+</script>
+
+</body>
+</html>
+<!--  /*'POST /User/Toto' : 'usercontroller.toto'*/  ancien projet
+
+ ' /User/Toto': { controller: 'UserController', action:'toto' }, nv projet
+
+
+
+-->

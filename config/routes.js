@@ -20,6 +20,18 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  //'Post /User/Toto': { controller: 'UserController', action:'toto' },
+  //' /user/create?param=toto' : {controller: 'UserController', action:'toto'},
+  '/creationUser': {view : 'pages/create'},
+  'GET /user/create' : {view : 'pages/create'},
+  'Get /user/createaAction' : {view : 'pages/createaction'},
+  //'user/create/:param?' : {controller: 'UserController', action:'toto'},
+  '/user/toto' : {controller: 'UserController', action:'toto'},
+  /*
+  * 'GET /user/create' : {view : 'pages/create'},
+  * */
+  //True routes
+  '/user/list': {controller: 'UserController', action:'lister'},
 
 
   /***************************************************************************
