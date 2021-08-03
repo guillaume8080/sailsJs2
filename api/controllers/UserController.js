@@ -21,7 +21,6 @@ module.exports = {
   lister: async function  (req, res) {
 
     var listUsers = await User.find();
-    console.log(listUsers.length);
     return res.view('pages/user/list', {maCollection: listUsers} );
   },
   create: async function  (req , res) {
@@ -29,7 +28,7 @@ module.exports = {
     const body = req.body;
     console.log(body);
     var monPremierObjet = await User.create({mail: body.mail , first_name: body.first_name, last_name: body.last_name , age: body.age}).fetch();
-    return res.view('pages/homepage' );
+    return res.redirect('pages/homepage' );
   },
 
 };

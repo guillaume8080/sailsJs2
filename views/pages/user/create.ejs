@@ -36,10 +36,11 @@
     requete.open("post" ,"/user/create");
     requete.onload = function (){
 
-      //window.location.replace("/");
+      window.location.replace("/user/list");
     }
     console.log("url done");
     requete.send(new FormData(TheForm));
+
 
 
 
