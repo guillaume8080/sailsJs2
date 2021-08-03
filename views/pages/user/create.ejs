@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<body>
+<form id="myForm">
+    <div>
+        <label>mail:</label>
+        <input i name="mail" type="text">
+    </div>
+    <div>
+        <label>FirstName:</label>
+        <input  name="first_name" type="text">
+    </div>
+    <div>
+        <label>LastName:</label>
+        <input  name="last_name" type="text">
+    </div>
+    <div>
+        <label>Age:</label>
+        <input  name="age" type="number">
+    </div>
+    <div>
+        <button type="submit" >monBouton</button>
+    </div>
+</form>
+<script>
+  // const UserController = require('../../api/controllers/UserController');
+
+  const TheForm = document.getElementById("myForm");
+  TheForm.addEventListener("submit", (e) =>{
+
+    //annule la prise en main vers une url impossible à manipuler
+    e.preventDefault();
+
+    const requete = new XMLHttpRequest();
+    requete.open("post" ,"/user/create");
+    requete.onload = function (){
+
+      //window.location.replace("/");
+    }
+    console.log("url done");
+    requete.send(new FormData(TheForm));
+
+
+
+    //possibilité d'appeler une route, arguments???
+    //res.redirect('/user/toto');
+    //return UserController.toto();
+
+  });
+</script>
+
+</body>
+</html>

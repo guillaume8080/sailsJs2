@@ -13,6 +13,7 @@ module.exports = {
     first_name: {type: 'string'},
     last_name: {type: 'string'},
     age: {type: 'number'},
+
   },
 
 };

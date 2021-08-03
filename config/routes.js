@@ -23,7 +23,7 @@ module.exports.routes = {
   //'Post /User/Toto': { controller: 'UserController', action:'toto' },
   //' /user/create?param=toto' : {controller: 'UserController', action:'toto'},
   '/creationUser': {view : 'pages/create'},
-  'GET /user/create' : {view : 'pages/create'},
+  //'GET /user/create' : {view : 'pages/create'},
   'Get /user/createaAction' : {view : 'pages/createaction'},
   //'user/create/:param?' : {controller: 'UserController', action:'toto'},
   '/user/toto' : {controller: 'UserController', action:'toto'},
@@ -32,6 +32,8 @@ module.exports.routes = {
   * */
   //True routes
   '/user/list': {controller: 'UserController', action:'lister'},
+  'GET /user/create': {view : 'pages/user/create'},
+  'POST /user/create' : {controller: 'UserController', action:'create'},
 
 
   /***************************************************************************

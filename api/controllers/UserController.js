@@ -24,6 +24,13 @@ module.exports = {
     console.log(listUsers.length);
     return res.view('pages/user/list', {maCollection: listUsers} );
   },
+  create: async function  (req , res) {
+
+    const body = req.body;
+    console.log(body);
+    var monPremierObjet = await User.create({mail: body.mail , first_name: body.first_name, last_name: body.last_name , age: body.age}).fetch();
+    return res.view('pages/homepage' );
+  },
 
 };
 
