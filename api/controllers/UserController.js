@@ -7,17 +7,6 @@
 
 module.exports = {
 
-  toto: async function  (req , res) {
-
-    //console.log(TheForm.getElementsByTagName("param"));
-    //console.log(document.getElementById("parmToGet"));
-
-    const toto = req.body;
-    console.log(toto);
-    var monPremierObjet = await User.create({mail: 'toto@mail.com' , first_name: 'toto'}).fetch();
-    return res.view('pages/homepage' );
-  },
-
   lister: async function  (req, res) {
 
     var listUsers = await User.find();
@@ -30,6 +19,17 @@ module.exports = {
     var monPremierObjet = await User.create({mail: body.mail , first_name: body.first_name, last_name: body.last_name , age: body.age}).fetch();
     return res.redirect('pages/homepage' );
   },
+
+  delete: async function  (req , res)  {
+
+    console.log(req.params);
+    const idToDelete = req.params.id;
+    console.log(idToDelete);
+    const retour = await User.destroy({id: idToDelete}).fetch();
+
+    return res.redirect('/user/list');
+
+  }
 
 };
 

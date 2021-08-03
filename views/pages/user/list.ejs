@@ -1,6 +1,8 @@
 <h1>Ma Liste d Users</h1>
 <ul>
     <!<% for(var i=0; i<maCollection.length; i++) {%>
-        <li><%= maCollection[i].first_name %></li>
+        <li><%= maCollection[i].first_name %>
+        <a href="/user/delete/<%= maCollection[i].id %>">delete</a>
+        </li>
     <% } %>
 </ul>

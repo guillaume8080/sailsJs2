@@ -34,6 +34,7 @@ module.exports.routes = {
   '/user/list': {controller: 'UserController', action:'lister'},
   'GET /user/create': {view : 'pages/user/create'},
   'POST /user/create' : {controller: 'UserController', action:'create'},
+  '/user/delete/:id' :{controller: 'UserController', action:'delete'},
 
 
   /***************************************************************************
