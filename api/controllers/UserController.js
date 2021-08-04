@@ -17,7 +17,10 @@ module.exports = {
     const body = req.body;
     console.log(body);
     var monPremierObjet = await User.create({mail: body.mail , first_name: body.first_name, last_name: body.last_name , age: body.age}).fetch();
-    return res.redirect('pages/homepage' );
+    //La redirection s'effecture avec une url passé dans le template.
+    //Toutefois, sans un return.redirect dans cette classe, la redirection ne s'effecture pas.
+    return res.redirect('user/list' );
+
   },
 
   delete: async function  (req , res)  {

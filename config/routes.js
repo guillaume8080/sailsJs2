@@ -20,6 +20,9 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+
+
+  //routes de test
   //'Post /User/Toto': { controller: 'UserController', action:'toto' },
   //' /user/create?param=toto' : {controller: 'UserController', action:'toto'},
   '/creationUser': {view : 'pages/create'},
@@ -27,15 +30,18 @@ module.exports.routes = {
   'Get /user/createaAction' : {view : 'pages/createaction'},
   //'user/create/:param?' : {controller: 'UserController', action:'toto'},
   '/user/toto' : {controller: 'UserController', action:'toto'},
-  /*
-  * 'GET /user/create' : {view : 'pages/create'},
-  * */
-  //True routes
+
+  //True routes to User qactions and views
   '/user/list': {controller: 'UserController', action:'lister'},
   'GET /user/create': {view : 'pages/user/create'},
   'POST /user/create' : {controller: 'UserController', action:'create'},
   '/user/delete/:id' :{controller: 'UserController', action:'delete'},
 
+  //Routes to Events
+  '/event/list': {controller: 'EventController', action: 'lister'},
+  'GET /event/create' : {view: 'pages/event/create'},
+  'POST /event/create' : {controller: 'EventController' , action: 'create'},
+  //'/event/delete/:id' :{controller: 'UserController', action:'delete'},
 
   /***************************************************************************
   *                                                                          *

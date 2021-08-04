@@ -1,0 +1,14 @@
+<h1>List des events</h1>
+<br>
+<a href="/event/create" >create</a>
+
+<ul>
+    <!<% for(var i=0; i<maCollection.length; i++) {%>
+        <li><%= maCollection[i].label %>
+            <%= maCollection[i].start_date %>
+            <%= maCollection[i].end_date %>
+            <%= maCollection[i].address %>
+            <a href="/event/delete/<%= maCollection[i].id %>">delete</a>
+        </li>
+    <% } %>
+</ul>
