@@ -32,7 +32,7 @@ module.exports = {
 
     return res.redirect('/user/list');
 
-  }
+  },
 
 };
 

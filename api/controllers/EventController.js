@@ -22,5 +22,16 @@ module.exports = {
     return res.view('pages/event/list', {maCollection: listEvents} );
   },
 
+  delete: async function  (req , res)  {
+
+    console.log(req.params);
+    const idToDelete = req.params.id;
+    console.log(idToDelete);
+    const retour = await Evenement.destroy({id: idToDelete}).fetch();
+
+    return res.redirect('/event/list');
+
+  },
+
 };
 

@@ -41,7 +41,7 @@ module.exports.routes = {
   '/event/list': {controller: 'EventController', action: 'lister'},
   'GET /event/create' : {view: 'pages/event/create'},
   'POST /event/create' : {controller: 'EventController' , action: 'create'},
-  //'/event/delete/:id' :{controller: 'UserController', action:'delete'},
+  '/event/delete/:id' :{controller: 'EventController', action:'delete'},
 
   /***************************************************************************
   *                                                                          *
