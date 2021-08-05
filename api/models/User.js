@@ -14,6 +14,17 @@ module.exports = {
     last_name: {type: 'string'},
     age: {type: 'number'},
 
+    //One to many
+    tokentrue:{
+
+      collection:'tokentrue',
+      via: 'tokenuser'
+
+    },
+
+
+
+
   },
 
 };

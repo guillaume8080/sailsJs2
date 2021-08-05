@@ -14,6 +14,8 @@ module.exports = {
     end_date : { type: 'string' , columnType: 'time_stamp' },
     address : {type: 'string'},
 
+
+
   },
 
 };

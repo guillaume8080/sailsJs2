@@ -42,6 +42,8 @@ module.exports.routes = {
   'GET /event/create' : {view: 'pages/event/create'},
   'POST /event/create' : {controller: 'EventController' , action: 'create'},
   '/event/delete/:id' :{controller: 'EventController', action:'delete'},
+  //Routes events/Token
+  '/event/token' : {controller: 'EventController' , action:'createToken'},
 
   /***************************************************************************
   *                                                                          *
