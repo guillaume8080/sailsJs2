@@ -19,6 +19,10 @@ module.exports = {
   lister: async function  (req, res) {
 
     var listEvents = await Evenement.find();
+    const myQueryUser = await User.find({id:"610d2b0ebadf441feab1dd3d" }).populate('tokentrue');
+
+
+    const myQueryEvent = await Evenement.find({id:"610d2a9cbadf441feab1dd3b" }).populate('tokentrue');
     return res.view('pages/event/list', {maCollection: listEvents} );
   },
 
@@ -45,14 +49,12 @@ module.exports = {
 
   createToken: async function (req,res){
 
-    //Manage collection returned by querey
-    const ArrayUsertst = await User.find({id:"610a55d60bcff4272488d178" });
-    const userTest = ArrayUsertst[0];
-
+    const variable = req.params;
+    const idEvenement = variable.id;
     //create:
-    const retourReqId = await TokenTrue.create({tokenuser: req.body.idUser , tokenevent:req.params.id}).fetch();
+    const retourReqId = await TokenTrue.create({tokenuser: req.body.idUser , tokenevent: req.params.id}).fetch();
 
-    //Query on join/via keys
+    //Query on join/via keys --> To delete
     const myQuery = await User.find({id:"610a55d60bcff4272488d178" }).populate('tokentrue');
 
     return res.redirect('/event/list');

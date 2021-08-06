@@ -25,7 +25,8 @@
 
       window.location.replace("/event/list");
     }
-    alert (sb.value);
+    const paramToDisplay = new FormData(TheForm);
+    alert (paramToDisplay);
     requete.send(new FormData(TheForm));
 
 
