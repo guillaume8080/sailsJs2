@@ -43,7 +43,14 @@ module.exports.routes = {
   'POST /event/create' : {controller: 'EventController' , action: 'create'},
   '/event/delete/:id' :{controller: 'EventController', action:'delete'},
   //Routes events/Token
+  //route to mock , to delete
   '/event/token' : {controller: 'EventController' , action:'createToken'},
+  //route creation token true
+  //1 get peut ramener vers un controller
+  'GET /event/:id/token' : {controller: 'EventController' , action:'interView'},
+  'POST /event/:id/token' : {controller: 'EventController' , action:'createToken'},
+
+  //'Post /event/:id/token' : {controller: 'EventController' , }
 
   /***************************************************************************
   *                                                                          *

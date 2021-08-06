@@ -32,27 +32,25 @@ module.exports = {
     return res.redirect('/event/list');
 
   },
+
+  interView: async function(req,res){
+
+    const idEvenement = req.params.id;
+    var listUsers = await User.find();
+
+    return res.view('pages/event/token/createTokenForm', {idEvent: idEvenement , collectionUser: listUsers } );
+
+
+  },
+
   createToken: async function (req,res){
 
-    /*const retourCreate = await Token.create().fetch();
-    const idToken = retourCreate.id;
-    //attention un find ramene des arrays mm à 1 element
-    ;*/
-
-    //syntaxe insert via references
-   /* try{
-      //await User.addToCollection("idToken", 'user', "610a55d60bcff4272488d178");
-      const retour =  await Token.create({owner: "610a55d60bcff4272488d178"});
-    }
-    catch(error){
-      console.log("l erreur produit est :" + error);
-    }*/
-
+    //Manage collection returned by querey
     const ArrayUsertst = await User.find({id:"610a55d60bcff4272488d178" });
     const userTest = ArrayUsertst[0];
 
     //create:
-    const retourReqId = await TokenTrue.create({tokenuser: "610a55d60bcff4272488d178" , tokenevent:"610a59ed6385e42c91ec5e32"}).fetch();
+    const retourReqId = await TokenTrue.create({tokenuser: req.body.idUser , tokenevent:req.params.id}).fetch();
 
     //Query on join/via keys
     const myQuery = await User.find({id:"610a55d60bcff4272488d178" }).populate('tokentrue');

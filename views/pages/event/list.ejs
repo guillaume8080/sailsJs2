@@ -9,6 +9,7 @@
             <%= maCollection[i].end_date %>
             <%= maCollection[i].address %>
             <a href="/event/delete/<%= maCollection[i].id %>">delete</a>
+            <a href="/event/<%= maCollection[i].id %>/token" >ajoutTicket</a>
         </li>
     <% } %>
 </ul>

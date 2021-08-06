@@ -1,0 +1,39 @@
+<html>
+<h1>Creation Ticket</h1>
+<form id="formEvent" >
+    <select id="selectList" name= "idUser"  >
+        <!<% for(var i=0; i<collectionUser.length; i++) {%>
+            <option value = "<%= collectionUser[i].id %>"><%= collectionUser[i].first_name %><p> </p><%= collectionUser[i].last_name %></option>
+        <% } %>
+    </select>
+    <br>
+    <button type="submit" >monBouton</button>
+</form>
+<script>
+  const TheForm = document.getElementById("formEvent");
+  const myUrl = "/event/<%= idEvent%>/token";
+  const sb = document.querySelector('#selectList')
+
+  TheForm.addEventListener("submit", (e) =>{
+
+    //annule la prise en main vers une url impossible à manipuler
+    e.preventDefault();
+
+    const requete = new XMLHttpRequest();
+    requete.open("post" ,myUrl);
+    requete.onload = function (){
+
+      window.location.replace("/event/list");
+    }
+    alert (sb.value);
+    requete.send(new FormData(TheForm));
+
+
+  });
+
+
+
+
+
+</script>
+</html>
