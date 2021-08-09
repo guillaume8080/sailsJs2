@@ -20,6 +20,8 @@ module.exports.globals = {
 
   _: require('@sailshq/lodash'),
 
+  //require: false,
+
   /****************************************************************************
   *                                                                           *
   * This app was generated without a dependency on the "async" NPM package.   *
@@ -48,5 +50,11 @@ module.exports.globals = {
   ****************************************************************************/
 
   sails: true,
+
+  axios: require('axios'),
+
+
+
+
 
 };

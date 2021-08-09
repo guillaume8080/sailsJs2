@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <h1>creation d' un evenement</h1>
 <body>
@@ -33,6 +34,7 @@
 
     const requete = new XMLHttpRequest();
     requete.open("post" ,"/event/create");
+    //requete.open("post" ,"/event/address");
     requete.onload = function (){
 
       window.location.replace("/event/list");

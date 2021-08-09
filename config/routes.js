@@ -50,7 +50,17 @@ module.exports.routes = {
   'GET /event/:id/token' : {controller: 'EventController' , action:'interView'},
   'POST /event/:id/token' : {controller: 'EventController' , action:'createToken'},
 
-  //'Post /event/:id/token' : {controller: 'EventController' , }
+  //Route de tests axios
+ // 'GET /event/createAddress' : {view: 'pages/event/createAddress'},
+  'POST /event/create2' : {controller : 'EventController' , action : 'createEvent'},
+
+
+
+  '/event/address' : {controller: 'EventController' , action:'controllerAddress'},
+  '/event/createAddress' : {view: 'pages/event/createAddress'},
+
+
+
 
   /***************************************************************************
   *                                                                          *

@@ -4,10 +4,17 @@
 
 <ul>
     <!<% for(var i=0; i<maCollection.length; i++) {%>
+
         <li><%= maCollection[i].label %>
             <%= maCollection[i].start_date %>
             <%= maCollection[i].end_date %>
             <%= maCollection[i].address %>
+            <%
+                const arrayOfToken = maCollection[i].tokentrue;
+                const sizeOfArray = arrayOfToken.length;
+
+            %>
+            <%= sizeOfArray %>
             <a href="/event/delete/<%= maCollection[i].id %>">delete</a>
             <a href="/event/<%= maCollection[i].id %>/token" >ajoutTicket</a>
         </li>
