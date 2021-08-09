@@ -86,6 +86,61 @@ module.exports = {
     return res.redirect('/event/list');
   },
 
+  createManageAddress: async function(req, res){
+
+    //console.log(req.params);
+    var axios = require('axios');
+    var labelsReturned = [];
+    var wholeParams = req.params;
+    const address = wholeParams.address;
+    const libelle = wholeParams.libelle;
+    const debut = wholeParams.debut;
+    const fin = wholeParams.fin;
+
+
+
+
+    const retour = await axios.get('https://api-adresse.data.gouv.fr/search', {
+      params: {
+        q: address,
+        //q: body,
+      }
+    }).then(function (response) {
+      console.log(response);
+      for (let i = 0; i < response.data.features.length; i++) {
+        labelsReturned.push(response.data.features[i].properties.label);
+
+      }
+
+    })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function (response) {
+      });
+
+
+
+    return  res.view('pages/event/createAddress' , {leDebut: debut, leLibelle:libelle , laFin:fin , collectionAdresses:labelsReturned });
+
+  },
+  createTrue: async function(req, res){
+
+    const body = req.body;
+    console.log(body);
+    var retourInsertTest = await Evenement.create({
+      label: body.libelle,
+      start_date: body.debut,
+      end_date: body.fin,
+      address: body.lAdresse
+    }).fetch();
+    console.log('insert done');
+    return res.redirect('event/list');
+
+    return;
+  }
+
+
 
 
 

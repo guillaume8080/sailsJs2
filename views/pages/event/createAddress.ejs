@@ -1,4 +1,50 @@
+<!DOCTYPE html>
 <html>
-<h1>toto</h1>
-</html>
+<h1>creation d' un evenement</h1>
+<body>
+<form id="formEvent">
+    <label>libelle:</label>
+    <input id="libelle" name="libelle" type="text"  value="<%= leLibelle %>">
+    </div>
+    <div>
+        <label>debut:</label>
+        <input id="debut" name="debut" type="date"  value="<%= leDebut %>">
+    </div>
+    <div>
+        <label>fin:</label>
+        <input id="fin" name="fin" type="date" value="<%= laFin %>" >
+    </div>
+    <div><!-- listing des adresses-->
+        <label>adresses:</label>
+        <select id="selectListAdress" name= "lAdresse" >
+            <!<% for(var i=0; i<collectionAdresses.length; i++) {%>
+                <option value = "<%= collectionAdresses[i] %>"><%= collectionAdresses[i] %></option>
+            <% } %>
+        </select>
+    </div>
+    <div>
+        <button type="submit" >monBouton</button>
+    </div>
+</form>
+</body>
+<script>
+  const TheForm = document.getElementById("formEvent");
+  TheForm.addEventListener("submit", (e) =>{
 
+    //annule la prise en main vers une url impossible à manipuler
+    e.preventDefault();
+
+    const requete = new XMLHttpRequest();
+    requete.open("post", "/event/createTrue");
+    requete.onload = function (){
+
+      window.location.replace("/event/list");
+    }
+    console.log("url done");
+    requete.send(new FormData(TheForm));
+
+  });
+
+</script>
+
+</html>

@@ -51,14 +51,8 @@ module.exports.routes = {
   'POST /event/:id/token' : {controller: 'EventController' , action:'createToken'},
 
   //Route de tests axios
- // 'GET /event/createAddress' : {view: 'pages/event/createAddress'},
-  'POST /event/create2' : {controller : 'EventController' , action : 'createEvent'},
-
-
-
-  '/event/address' : {controller: 'EventController' , action:'controllerAddress'},
-  '/event/createAddress' : {view: 'pages/event/createAddress'},
-
+  '/event/createAddress/:libelle/:debut/:fin/:address' : {controller: 'EventController' , action:'createManageAddress'},
+  'POST /event/createTrue' : {controller: 'EventController' , action:'createTrue'},
 
 
 

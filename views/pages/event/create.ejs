@@ -3,21 +3,20 @@
 <h1>creation d' un evenement</h1>
 <body>
 <form id="formEvent">
-    <div>
-        <label>label:</label>
-        <input i name="libelle" type="text">
+        <label>libelle:</label>
+        <input id="libelle" name="test" type="text" >
     </div>
     <div>
         <label>debut:</label>
-        <input i name="debut" type="date">
+        <input id="debut" name="debut" type="date" >
     </div>
     <div>
         <label>fin:</label>
-        <input i name="fin" type="date">
+        <input id="fin" name="fin" type="date">
     </div>
     <div>
         <label>adresse:</label>
-        <input i name="adresse" type="text">
+        <input id="adresse" name="adresse" type="text">
     </div>
     <div>
         <button type="submit" >monBouton</button>
@@ -25,14 +24,35 @@
 </form>
 <script>
   // const UserController = require('../../api/controllers/UserController');
-
   const TheForm = document.getElementById("formEvent");
+
+  /*const libelle = document.getElementById("test").value;
+  alert(libelle) ;*/
+
+  /*const debut = document.getElementById("debut").value;
+  const fin = document.getElementById("fin").value;
+  const adresse = document.getElementById("adresse").value;
+  var  myUrl = "/event/createAddress/" + libelle + "/" + debut + "/" + fin + "/" + adresse;*/
+
+
+
   TheForm.addEventListener("submit", (e) =>{
 
-    //annule la prise en main vers une url impossible à manipuler
     e.preventDefault();
+    const libelle = document.getElementById("libelle").value;
+    const debut = document.getElementById("debut").value;
+    const fin = document.getElementById("fin").value;
+    const adresse = document.getElementById("adresse").value;
+    const  myUrl = "/event/createAddress/" + libelle + "/" + debut + "/" + fin + "/" + adresse;
+    alert (myUrl);
+    window.location.replace(myUrl);
 
-    const requete = new XMLHttpRequest();
+    //annule la prise en main vers une url impossible à manipuler
+
+
+    //
+
+    /*const requete = new XMLHttpRequest();
     requete.open("post" ,"/event/create");
     //requete.open("post" ,"/event/address");
     requete.onload = function (){
@@ -40,7 +60,7 @@
       window.location.replace("/event/list");
     }
     console.log("url done");
-    requete.send(new FormData(TheForm));
+    requete.send(new FormData(TheForm));*/
 
 
 
