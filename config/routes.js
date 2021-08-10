@@ -54,6 +54,12 @@ module.exports.routes = {
   '/event/createAddress/:libelle/:debut/:fin/:address' : {controller: 'EventController' , action:'createManageAddress'},
   'POST /event/createTrue' : {controller: 'EventController' , action:'createTrue'},
 
+  //Utilisation de bluePrint
+  'GET /api/v1/token' : {controller: 'TokenApiController' , action:'findAll'},
+  //test apple fonction ci-dessus --> toDelete
+  '/test/test' : {controller: 'TokenApiController' , action:'testAppel'},
+
+
 
 
   /***************************************************************************

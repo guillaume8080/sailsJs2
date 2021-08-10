@@ -100,6 +100,7 @@ module.exports = {
 
 
 
+
     const retour = await axios.get('https://api-adresse.data.gouv.fr/search', {
       params: {
         q: address,
@@ -109,6 +110,7 @@ module.exports = {
       console.log(response);
       for (let i = 0; i < response.data.features.length; i++) {
         labelsReturned.push(response.data.features[i].properties.label);
+
 
       }
 
