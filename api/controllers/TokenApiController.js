@@ -68,7 +68,7 @@ module.exports = {
 
     var retourAppelAdresse ;
     var axios = require('axios');
-
+    var test;
     retourAppelAdresse = await axios.get('http://localhost:1337/api/v1/token');
 
     const CollectionManipulable = retourAppelAdresse.data;

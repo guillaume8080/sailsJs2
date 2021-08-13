@@ -56,8 +56,9 @@ module.exports.routes = {
 
   //Utilisation de bluePrint
   'GET /api/v1/token' : {controller: 'TokenApiController' , action:'findAll'},
-  //test apple fonction ci-dessus --> toDelete
-  '/test/test' : {controller: 'TokenApiController' , action:'testAppel'},
+
+  //route vers la page de test interface
+  '/testInterface' : {view: 'pages/testInterface'},
 
 
 
