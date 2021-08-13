@@ -1,22 +1,55 @@
-<h1>List des events</h1>
-<br>
-<a href="/event/create" >create</a>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>List des évènements</h1>
+    <br>
+    <a href="/event/create" class="pagination" style="font-size:200%;" >create</a>
+    <br>
+    <table class="table table-striped table-bordered text-black" >
+        <thead class = "bg-primary text-white">
+        <div class="row">
+            <tr>
+                <th>supprimmer</th>
+                <th>ajoutTicket</th>
+                <th>Libellé</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>#Nb partic.</th>
+            </tr>
+        </div>
+        </thead>
+        <tbody>
+        <!<% for(var i=0; i<maCollection.length; i++) {%>
+            <tr>
+                <!--Lien matérialisé par une image - Ce lien renvoie vers une route (suppression d1 event)-->
+                <td align="center"  ><a href="/event/delete/<%= maCollection[i].id %>"><img src="http://localhost:1337/images/delete.jpeg" width="60" height="50" ></a></td>
+                <td align="center" ><a href="/event/<%= maCollection[i].id %>/token" ><img src="http://localhost:1337/images/ticket.jpeg" width="50" height="50" ></a></td>
+                <td><%= maCollection[i].label %></td>
+                <%
+                    const leDebut = maCollection[i].start_date;
+                    const laFin = maCollection[i].end_date;
+                    const renduDate = "Du " + leDebut + " au " + laFin ;
 
-<ul>
-    <!<% for(var i=0; i<maCollection.length; i++) {%>
-
-        <li><%= maCollection[i].label %>
-            <%= maCollection[i].start_date %>
-            <%= maCollection[i].end_date %>
-            <%= maCollection[i].address %>
-            <%
-                const arrayOfToken = maCollection[i].tokentrue;
-                const sizeOfArray = arrayOfToken.length;
-
-            %>
-            <%= sizeOfArray %>
-            <a href="/event/delete/<%= maCollection[i].id %>">delete</a>
-            <a href="/event/<%= maCollection[i].id %>/token" >ajoutTicket</a>
-        </li>
-    <% } %>
-</ul>
+                %>
+                <td><%= renduDate %></td>
+                <td><%= maCollection[i].address %></td>
+                <!--Dans la balise ci-dessous sont définies 2 variables
+                    arrayOfToken ramène les tikcets en lien avec l'évènement
+                    Etant donné qu 1 ticket = 1 user , la longueur du tableau ramène le nombre d'utiloisateur en line avce l event
+                    si
+                -->
+                <%
+                    const arrayOfToken = maCollection[i].tokentrue;
+                    const sizeOfArray = arrayOfToken.length;
+                %>
+                <td><%= sizeOfArray %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

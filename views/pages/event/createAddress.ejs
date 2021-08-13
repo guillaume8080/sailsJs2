@@ -1,33 +1,55 @@
-<!DOCTYPE html>
 <html>
-<h1>creation d' un evenement</h1>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 <body>
-<form id="formEvent">
-    <label>libelle:</label>
-    <input id="libelle" name="libelle" type="text"  value="<%= leLibelle %>">
-    </div>
-    <div>
-        <label>debut:</label>
-        <input id="debut" name="debut" type="date"  value="<%= leDebut %>">
-    </div>
-    <div>
-        <label>fin:</label>
-        <input id="fin" name="fin" type="date" value="<%= laFin %>" >
-    </div>
-    <div><!-- listing des adresses-->
-        <label>adresses:</label>
-        <select id="selectListAdress" name= "lAdresse" >
-            <!<% for(var i=0; i<collectionAdresses.length; i++) {%>
-                <option value = "<%= collectionAdresses[i] %>"><%= collectionAdresses[i] %></option>
-            <% } %>
-        </select>
-    </div>
-    <div>
-        <button type="submit" >monBouton</button>
-    </div>
-</form>
-</body>
+<div class="container">
+    <h3>Formulaire création d'évènement</h3>
+    <br>
+    <form id="formEvent">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Libellé</label>
+            <div class="col-sm-9">
+                <input id="libelle" name="libelle" type="text"  class="form-control" value="<%= leLibelle %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date début</label>
+            <div class="col-sm-9">
+                <input id="debut" name="debut" type="date" class="form-control" value="<%= leDebut %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date fin</label>
+            <div class="col-sm-9">
+                <input id="fin" name="fin" type="date" class="form-control" value="<%= laFin %>">
+            </div>
+        </div>
+        <!-- listing adresses proposées  -->
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label" >Lieu</label>
+            <div class="col-sm-9" >
+                <select id="selectListAdress" name= "lAdresse" >
+                    <!<% for(var i=0; i<collectionAdresses.length; i++) {%>
+                        <option value = "<%= collectionAdresses[i] %>" class="form-control" ><%= collectionAdresses[i] %></option>
+                    <% } %>
+                </select>
+            </div>
+        </div>
+        <!---fin de la boucle-->
+
+        <div class="row">
+            <p class="col-6"></p>
+            <button type="submit" class="col-2 btn btn-primary btn-sm" >Valider</button>
+            <p class="col-4"></p>
+            <!--<p class="col-1"></p>
+            <button class="col-2 btn btn-primary btn-sm" ><link href="/">Annuler</button>
+            <p class="col-1"></p>-->
+        </div>
+    </form>
+</div>
 <script>
+  alert("Veuillez sélectionner une adresse");
   const TheForm = document.getElementById("formEvent");
   TheForm.addEventListener("submit", (e) =>{
 
@@ -46,5 +68,5 @@
   });
 
 </script>
-
+</body>
 </html>

@@ -1,47 +1,49 @@
 <html>
-
-<!-- col grid system13323-->
-
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container">
-        <h3>Formulaire création d'utilisateur</h3>
-        <br>
-        <form id="myForm">
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nom</label>
-                <div class="col-sm-9">
-                    <input name="last_name" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Prénom</label>
-                <div class="col-sm-9">
-                    <input name="first_name" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Age</label>
-                <div class="col-sm-9">
-                    <input name="age" type="number" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Mail</label>
-                <div class="col-sm-9">
-                    <input name="mail" type="text" class="form-control">
-                </div>
-            </div>
-            <div class="row">
-                <p class="col-6"></p>
-                <button type="submit" class="col-2 btn btn-primary btn-sm" >Valider</button>
-                <p class="col-1"></p>
-                <button class="col-2 btn btn-primary btn-sm" ><a href="/"></a>Annuler</button>
-                <p class="col-1"></p>
-            </div>
-        </form>
-    </div>
+<div class="container">
+    <h1>List des évènements</h1>
+    <br>
+    <a href="/event/create" class="pagination" style="font-size:200%;" >create</a>
+    <br>
+    <table class="table table-striped table-bordered text-black" >
+        <thead class = "bg-primary text-white">
+        <div class="row">
+            <tr>
+                <th>supprimmer</th>
+                <th>ajoutTicket</th>
+                <th>Libellé</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>#Nb partic.</th>
+            </tr>
+        </div>
+        </thead>
+        <tbody>
+        <!<% for(var i=0; i<maCollection.length; i++) {%>
+            <tr>
+                <!--Lien matérialisé par une image - Ce lien renvoie vers une route (suppression d1 event)-->
+                <td align="center"  ><a href="/event/delete/<%= maCollection[i].id %>"><img src="http://localhost:1337/images/delete.jpeg" width="60" height="50" ></a></td>
+                <td align="center" ><a href="/event/<%= maCollection[i].id %>/token" ><img src="http://localhost:1337/images/ticket.jpeg" width="60" height="50" ></a></td>
+                <td><%= maCollection[i].label %></td>
+                <td><%= maCollection[i].start_date %></td>
+                <td><%= maCollection[i].address %></td>
+                <!--Dans la balise ci-dessous sont définies 2 variables
+                    arrayOfToken ramène les tikcets en lien avec l'évènement
+                    Etant donné qu 1 ticket = 1 user , la longueur du tableau ramène le nombre d'utiloisateur en line avce l event
+                    si
+                -->
+                <%
+                    const arrayOfToken = maCollection[i].tokentrue;
+                    const sizeOfArray = arrayOfToken.length;
+                %>
+                <td><%= sizeOfArray %></td>
+            </tr>
+        <% } %>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>

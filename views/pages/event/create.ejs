@@ -1,77 +1,69 @@
 <!DOCTYPE html>
 <html>
-<h1>creation d' un evenement</h1>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
 <body>
-<form id="formEvent">
-        <label>libelle:</label>
-        <input id="libelle" name="test" type="text" >
-    </div>
-    <div>
-        <label>debut:</label>
-        <input id="debut" name="debut" type="date" >
-    </div>
-    <div>
-        <label>fin:</label>
-        <input id="fin" name="fin" type="date">
-    </div>
-    <div>
-        <label>adresse:</label>
-        <input id="adresse" name="adresse" type="text">
-    </div>
-    <div>
-        <button type="submit" >monBouton</button>
-    </div>
-</form>
+<div class="container">
+    <h3>Formulaire création d'évènement</h3>
+    <br>
+    <form id="formEvent">
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Libellé</label>
+            <div class="col-sm-9">
+                <input id="libelle" name="test" type="text"  class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date début</label>
+            <div class="col-sm-9">
+                <input id="debut" name="debut" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Date fin</label>
+            <div class="col-sm-9">
+                <input id="fin" name="fin" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Lieu</label>
+            <div class="col-sm-9">
+                <input id="adresse" name="adresse" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-6"></p>
+            <button type="submit" class="col-2 btn btn-primary btn-sm" >Valider</button>
+            <p class="col-4"></p>
+            <!--<p class="col-1"></p>
+            <button class="col-2 btn btn-primary btn-sm" ><link href="/">Annuler</button>
+            <p class="col-1"></p>-->
+    </form>
+</div>
+
 <script>
   // const UserController = require('../../api/controllers/UserController');
   const TheForm = document.getElementById("formEvent");
 
-  /*const libelle = document.getElementById("test").value;
-  alert(libelle) ;*/
-
-  /*const debut = document.getElementById("debut").value;
-  const fin = document.getElementById("fin").value;
-  const adresse = document.getElementById("adresse").value;
-  var  myUrl = "/event/createAddress/" + libelle + "/" + debut + "/" + fin + "/" + adresse;*/
-
-
-
   TheForm.addEventListener("submit", (e) =>{
 
+    //annule la prise en main vers une url impossible à manipuler
     e.preventDefault();
     const libelle = document.getElementById("libelle").value;
     const debut = document.getElementById("debut").value;
     const fin = document.getElementById("fin").value;
     const adresse = document.getElementById("adresse").value;
     const  myUrl = "/event/createAddress/" + libelle + "/" + debut + "/" + fin + "/" + adresse;
-    alert (myUrl);
+    //alert affichant l'url concaténer
+    // alert (myUrl);
     window.location.replace(myUrl);
 
-    //annule la prise en main vers une url impossible à manipuler
-
-
-    //
-
-    /*const requete = new XMLHttpRequest();
-    requete.open("post" ,"/event/create");
-    //requete.open("post" ,"/event/address");
-    requete.onload = function (){
-
-      window.location.replace("/event/list");
-    }
-    console.log("url done");
-    requete.send(new FormData(TheForm));*/
-
-
-
-
-    //possibilité d'appeler une route, arguments???
-    //res.redirect('/user/toto');
-    //return UserController.toto();
 
   });
 </script>
 
 </body>
 </html>
+
 
