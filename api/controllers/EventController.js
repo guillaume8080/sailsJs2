@@ -123,8 +123,11 @@ module.exports = {
       .then(function (response) {
       });
 
+    if (labelsReturned.length < 1){
 
+      return res.view('pages/event/create');
 
+    }
     return  res.view('pages/event/createAddress' , {leDebut: debut, leLibelle:libelle , laFin:fin , collectionAdresses:labelsReturned });
 
   },

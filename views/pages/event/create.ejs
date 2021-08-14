@@ -39,11 +39,17 @@
             <!--<p class="col-1"></p>
             <button class="col-2 btn btn-primary btn-sm" ><link href="/">Annuler</button>
             <p class="col-1"></p>-->
+        </div>
     </form>
 </div>
 
 <script>
   // const UserController = require('../../api/controllers/UserController');
+  if(document.referrer == 'http://localhost:1337/event/create'){
+
+    alert ("L'adresse saisie n'est pas valide.")
+
+  }
   const TheForm = document.getElementById("formEvent");
 
   TheForm.addEventListener("submit", (e) =>{
