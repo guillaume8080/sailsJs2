@@ -66,9 +66,11 @@ module.exports = {
   interView: async function (req, res) {
 
     const idEvenement = req.params.id;
+    const lEvent = await Evenement.find({id: idEvenement});
+    const libelleEvenement = lEvent[0].label;
     var listUsers = await User.find();
 
-    return res.view('pages/event/token/createTokenForm', {idEvent: idEvenement, collectionUser: listUsers});
+    return res.view('pages/event/token/createTokenForm', {idEvent: idEvenement, collectionUser: listUsers , libelle: libelleEvenement});
 
 
   },
@@ -81,7 +83,7 @@ module.exports = {
     const retourReqId = await TokenTrue.create({tokenuser: req.body.idUser, tokenevent: req.params.id}).fetch();
 
     //Query on join/via keys --> To delete
-    const myQuery = await User.find({id: "610a55d60bcff4272488d178"}).populate('tokentrue');
+    //const myQuery = await User.find({id: "610a55d60bcff4272488d178"}).populate('tokentrue');
 
     return res.redirect('/event/list');
   },

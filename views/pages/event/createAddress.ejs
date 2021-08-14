@@ -26,15 +26,13 @@
             </div>
         </div>
         <!-- listing adresses proposées  -->
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label" >Lieu</label>
-            <div class="col-sm-9" >
-                <select id="selectListAdress" name= "lAdresse" >
+        <div class="form-group">
+            <label for="exampleFormControlSelect2" >Lieu</label>
+                <select multiple class="form-control" id="selectListAdress" name= "lAdresse" >
                     <!<% for(var i=0; i<collectionAdresses.length; i++) {%>
                         <option value = "<%= collectionAdresses[i] %>" class="form-control" ><%= collectionAdresses[i] %></option>
                     <% } %>
                 </select>
-            </div>
         </div>
         <!---fin de la boucle-->
 
