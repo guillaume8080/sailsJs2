@@ -4,6 +4,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/user/list">Utilisateur</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/event/list">Evenement</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
     <h3>Ajouter un utilisateur à l'évènement "<%= libelle %>"</h3>
 
     <!-- liste des utilisateurs potentiels -->
@@ -11,7 +22,11 @@
         <div class="form-group">
             <label for="exampleFormControlSelect2" >Utilisateur</label>
                 <select multiple class="form-control" id="selectList" name= "idUser"  >
-                    <!<% for(var i=0; i<collectionUser.length; i++) {%>
+                    <!-- Il manque un item à la collection
+                        J'ai essayé d'incrémenter le plafond de la boucle
+                        Une erreur survient du type impossible d' accéder à l'id...
+                     -->
+                    <!<% for(let i=0; i< collectionUser.length ; i++) {%>
                         <option value = "<%= collectionUser[i].id %>"><%= collectionUser[i].first_name %><p> </p><%= collectionUser[i].last_name %></option>
                     <% } %>
                 </select>

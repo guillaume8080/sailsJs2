@@ -5,6 +5,17 @@
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/user/list">Utilisateur</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/event/list">Evenement</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
     <h3>Formulaire création d'évènement</h3>
     <br>
     <form id="formEvent">
@@ -32,19 +43,19 @@
                 <input id="adresse" name="adresse" type="text" class="form-control">
             </div>
         </div>
+
+        <!--  row avec le bouton posant problème  -->
+
         <div class="row">
-            <p class="col-6"></p>
+            <p class="col-9"></p>
             <button type="submit" class="col-2 btn btn-primary btn-sm" >Valider</button>
-            <p class="col-4"></p>
-            <!--<p class="col-1"></p>
-            <button class="col-2 btn btn-primary btn-sm" ><link href="/">Annuler</button>
-            <p class="col-1"></p>-->
+            <p class="col-1"></p>
         </div>
     </form>
 </div>
 
 <script>
-  // const UserController = require('../../api/controllers/UserController');
+
   if(document.referrer == 'http://localhost:1337/event/create'){
 
     alert ("L'adresse saisie n'est pas valide.")

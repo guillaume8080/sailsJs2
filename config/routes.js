@@ -56,6 +56,7 @@ module.exports.routes = {
 
   //Utilisation de bluePrint
   'GET /api/v1/token' : {controller: 'TokenApiController' , action:'findAll'},
+  '/testInterface' :{view: 'pages/testInterface'},
 
 
 

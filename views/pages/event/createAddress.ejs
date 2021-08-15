@@ -5,6 +5,16 @@
 <body>
 <div class="container">
     <h3>Formulaire création d'évènement</h3>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/user/list">Utilisateur</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/event/list">Evenement</a>
+            </li>
+        </ul>
+    </nav>
     <br>
     <form id="formEvent">
         <div class="form-group row">
@@ -29,6 +39,10 @@
         <div class="form-group">
             <label for="exampleFormControlSelect2" >Lieu</label>
                 <select multiple class="form-control" id="selectListAdress" name= "lAdresse" >
+                    <!-- Il manque un item à la collection
+                        J'ai essayé d'incrémenter le plafond de la boucle
+                        Une erreur survient du type impossible d' accéder à l'id...
+                     -->
                     <!<% for(var i=0; i<collectionAdresses.length; i++) {%>
                         <option value = "<%= collectionAdresses[i] %>" class="form-control" ><%= collectionAdresses[i] %></option>
                     <% } %>
@@ -39,10 +53,9 @@
         <div class="row">
             <p class="col-6"></p>
             <button type="submit" class="col-2 btn btn-primary btn-sm" >Valider</button>
-            <p class="col-4"></p>
-            <!--<p class="col-1"></p>
+            <p class="col-1"></p>
             <button class="col-2 btn btn-primary btn-sm" ><link href="/">Annuler</button>
-            <p class="col-1"></p>-->
+            <p class="col-1"></p>
         </div>
     </form>
 </div>

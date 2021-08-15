@@ -69,8 +69,7 @@ module.exports = {
     const lEvent = await Evenement.find({id: idEvenement});
     const libelleEvenement = lEvent[0].label;
     var listUsers = await User.find();
-
-    return res.view('pages/event/token/createTokenForm', {idEvent: idEvenement, collectionUser: listUsers , libelle: libelleEvenement});
+    return res.view('pages/event/token/createTokenForm', {idEvent: idEvenement, collectionUser: listUsers , libelle: libelleEvenement });
 
 
   },

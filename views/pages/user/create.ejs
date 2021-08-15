@@ -4,6 +4,17 @@
 </head>
 <body>
 <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/user/list">Utilisateur</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link text-light "  href="/event/list">Evenement</a>
+            </li>
+        </ul>
+    </nav>
+    <br>
     <h3>Formulaire création d'utilisateur</h3>
     <br>
     <form id="myForm">
@@ -28,7 +39,7 @@
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Mail</label>
             <div class="col-sm-9">
-                <input name="mail" type="text" class="form-control">
+                <input name="mail" type="email" class="form-control">
             </div>
         </div>
         <div class="row">
