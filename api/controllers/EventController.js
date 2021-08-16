@@ -10,6 +10,7 @@
 //const axios = require('axios');
 
 
+
 module.exports = {
 
   create: async function (req, res) {
@@ -134,6 +135,13 @@ module.exports = {
 
     const body = req.body;
     console.log(body);
+
+
+    //conversion de l'input/date en timestamp
+    var timestamp = require('unix-timestamp');
+    const laDate = body.debut;
+    var retour = timestamp.fromDate(laDate);
+
     var retourInsertTest = await Evenement.create({
       label: body.libelle,
       start_date: body.debut,

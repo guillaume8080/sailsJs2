@@ -16,6 +16,8 @@
     "sails-hook-orm": "^3.0.2",
     "sails-hook-sockets": "^2.0.0",
     "sails-mongo": "^2.0.0",
+    "time-stamp": "^2.2.0",
+    "unix-timestamp": "^0.2.0",
     "xhr": "^2.6.0"
   },
   "devDependencies": {
