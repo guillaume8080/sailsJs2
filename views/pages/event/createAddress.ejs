@@ -38,7 +38,7 @@
         <!-- listing adresses proposées  -->
         <div class="form-group">
             <label for="exampleFormControlSelect2" >Lieu</label>
-                <select multiple class="form-control" id="selectListAdress" name= "lAdresse" >
+                <select  class="form-control" id="selectListAdress" name= "lAdresse" >
                     <!-- Il manque un item à la collection
                         J'ai essayé d'incrémenter le plafond de la boucle
                         Une erreur survient du type impossible d' accéder à l'id...
@@ -68,7 +68,7 @@
     e.preventDefault();
 
     const requete = new XMLHttpRequest();
-    requete.open("post", "/event/createTrue");
+    requete.open("post", "/event/create");
     requete.onload = function (){
 
       window.location.replace("/event/list");

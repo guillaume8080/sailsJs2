@@ -56,6 +56,10 @@
 
 <script>
 
+  /*Ce champ de la classe document représente la dernière url visitée par l'utilisateur
+  Si l'utilisateur est redirigée vers cette vue alors qu'il consultait l'URL ci-dessous
+  c'est qu'il n'a pas saisi correctement l'adresse de l'évènement*/
+
   if(document.referrer == 'http://localhost:1337/event/create'){
 
     alert ("L'adresse saisie n'est pas valide.")
@@ -72,8 +76,10 @@
     const fin = document.getElementById("fin").value;
     const adresse = document.getElementById("adresse").value;
     const  myUrl = "/event/createAddress/" + libelle + "/" + debut + "/" + fin + "/" + adresse;
-    //alert affichant l'url concaténer
-    // alert (myUrl);
+
+    /*incapacité d'exécuter une requête avec la classe XMLHttpRequest
+    //Je passe donc tous les variables clés dans l'url pour les récupérer dans la servlet*/
+
     window.location.replace(myUrl);
 
 

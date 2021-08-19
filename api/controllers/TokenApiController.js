@@ -13,11 +13,11 @@ module.exports = {
     var retourApi;
     var maCollectionDeTickets = [];
 
-
+    //cette requete permet  d'accéder  aux champs exposés tel des ids dans le flux renvoyé par cette url
     const retour = await axios.get('http://localhost:1337/tokentrue', {
 
     }).then(function (response) {
-      //console.log(response);
+      console.log(response);
       retourApi = response.data;
       console.log(retourApi);
       for (let i = 0; i < retourApi.length; i++){
@@ -59,7 +59,8 @@ module.exports = {
 
 
     });
-
+    //renvoie la collection attendu dans l'énonce sous forme de tableau
+    //Le return seule n'existe pas
     return res.send(maCollectionDeTickets);
 
   },
@@ -68,7 +69,6 @@ module.exports = {
 
     var retourAppelAdresse ;
     var axios = require('axios');
-    var test;
     retourAppelAdresse = await axios.get('http://localhost:1337/api/v1/token');
 
     const CollectionManipulable = retourAppelAdresse.data;

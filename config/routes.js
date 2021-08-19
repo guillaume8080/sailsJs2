@@ -22,15 +22,6 @@ module.exports.routes = {
   '/': { view: 'pages/homepage' },
 
 
-  //routes de test
-  //'Post /User/Toto': { controller: 'UserController', action:'toto' },
-  //' /user/create?param=toto' : {controller: 'UserController', action:'toto'},
-  '/creationUser': {view : 'pages/create'},
-  //'GET /user/create' : {view : 'pages/create'},
-  'Get /user/createaAction' : {view : 'pages/createaction'},
-  //'user/create/:param?' : {controller: 'UserController', action:'toto'},
-  '/user/toto' : {controller: 'UserController', action:'toto'},
-
   //True routes to User actions and views
   '/user/list': {controller: 'UserController', action:'lister'},
   'GET /user/create': {view : 'pages/user/create'},
@@ -41,6 +32,7 @@ module.exports.routes = {
   '/event/list': {controller: 'EventController', action: 'lister'},
   'GET /event/create' : {view: 'pages/event/create'},
   'POST /event/create' : {controller: 'EventController' , action: 'create'},
+  '/event/createAddress/:libelle/:debut/:fin/:address' : {controller: 'EventController' , action:'createManageAddress'},
   '/event/delete/:id' :{controller: 'EventController', action:'delete'},
   //Routes events/Token
   //route to mock , to delete
@@ -50,13 +42,11 @@ module.exports.routes = {
   'GET /event/:id/token' : {controller: 'EventController' , action:'interView'},
   'POST /event/:id/token' : {controller: 'EventController' , action:'createToken'},
 
-  //Route de tests axios
-  '/event/createAddress/:libelle/:debut/:fin/:address' : {controller: 'EventController' , action:'createManageAddress'},
-  'POST /event/createTrue' : {controller: 'EventController' , action:'createTrue'},
-
   //Utilisation de bluePrint
   'GET /api/v1/token' : {controller: 'TokenApiController' , action:'findAll'},
-  '/testInterface' :{view: 'pages/testInterface'},
+
+  //to Delete
+  '/testUltime' : {controller: 'TokenApiController' , action:'testAppel'},
 
 
 

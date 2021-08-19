@@ -22,9 +22,6 @@
     <br>
     <a href="/user/create" class="pagination" style="font-size:200%;" >Créer</a>
     <br>
-    <!--<form >
-    <button class=" btn btn-primary btn-sm" ><a href="/user/create"></a>Créer</button>
-    </form>-->
     <table class="table table-striped table-bordered text-black" >
         <thead class = "bg-primary text-white">
         <div class="row">
@@ -38,6 +35,7 @@
         </div>
         </thead>
         <tbody>
+        <!-- cette boucle parcourt une collection d'user et insère les champs dans des "cases" d'un tableau-->
         <!<% for(var i=0; i<maCollection.length; i++) {%>
             <tr>
                 <td align="center" ><a href="/user/delete/<%= maCollection[i].id %>" ><img class="rounded-circle" src="http://localhost:1337/images/delete.jpeg" width="60" height="50" ></a></td>

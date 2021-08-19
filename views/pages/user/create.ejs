@@ -52,7 +52,7 @@
     </form>
 </div>
 <script>
-  // const UserController = require('../../api/controllers/UserController');
+
 
   const TheForm = document.getElementById("myForm");
   TheForm.addEventListener("submit", (e) =>{
@@ -60,21 +60,19 @@
     //annule la prise en main vers une url impossible à manipuler
     e.preventDefault();
 
+    //ce client envoie les données du formulaire au controller à la route ci-dessous
     const requete = new XMLHttpRequest();
     requete.open("post" ,"/user/create");
     requete.onload = function (){
 
+      //Une fois que la servlet POST /user/create est terminée , l'appli est redirigée vers la liste ci-dessous
+      //La liste des users entre autre
       window.location.replace("/user/list");
     }
-    console.log("url done");
+
     requete.send(new FormData(TheForm));
 
 
-
-
-    //possibilité d'appeler une route, arguments???
-    //res.redirect('/user/toto');
-    //return UserController.toto();
 
   });
 </script>
