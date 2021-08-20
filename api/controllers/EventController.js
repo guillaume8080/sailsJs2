@@ -48,8 +48,39 @@ module.exports = {
 
   delete: async function (req, res) {
 
+    var axios = require('axios');
     const idToDelete = req.params.id;
+    //tableau d ids de token destiné à la suppression
+    var tableauDId = [];
+
+    //suppression des tokens associés à l'evenement
+    const retourAxios = await axios.get('http://localhost:1337/tokentrue', {
+
+    }).then(function (response) {
+
+      retourApi = response.data;
+      for (let i = 0; i < retourApi.length; i++){
+
+        if(retourApi[i].tokenevent.id === idToDelete){
+
+          tableauDId.push(retourApi[i].id);
+
+        }
+      }
+    });
+
+    for (let j = 0; j < tableauDId.length; j++){
+
+      var tokenToDelete = tableauDId[j];
+
+      var retourDelete = await TokenTrue.destroy({id: tokenToDelete}).fetch();
+
+
+    }
+
+    //suppression de l'evenement lui-meme
     const retour = await Evenement.destroy({id: idToDelete}).fetch();
+
 
     return res.redirect('/event/list');
 
